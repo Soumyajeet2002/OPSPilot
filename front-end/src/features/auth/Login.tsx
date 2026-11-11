@@ -1,6 +1,7 @@
-
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { authService, getLoginErrorMessage } from "./authService";
 import styles from "./Login.module.css";
 
 type LoginValues = {
@@ -12,10 +13,7 @@ type LoginValues = {
 function BrandLogo() {
   return (
     <svg viewBox="0 0 64 64" fill="none" aria-label="OpsPilot logo">
-      <path
-        d="M5 51 30 8 59 51H43L30 29 18 51H5Z"
-        fill="currentColor"
-      />
+      <path d="M5 51 30 8 59 51H43L30 29 18 51H5Z" fill="currentColor" />
       <path
         d="m29 43 11-17 17 25H41l-5-8-7 11"
         fill="currentColor"
@@ -56,8 +54,21 @@ function MoonIcon() {
 function MailIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="1.5" stroke="currentColor" strokeWidth="1.7" />
-      <path d="m4 7 8 6 8-6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="m4 7 8 6 8-6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -65,8 +76,21 @@ function MailIcon() {
 function LockIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="4" y="10" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <rect
+        x="4"
+        y="10"
+        width="16"
+        height="12"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -76,12 +100,27 @@ function EyeIcon({ visible }: { visible: boolean }) {
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
       {visible ? (
         <>
-          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" strokeWidth="1.7" />
-          <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.7" />
+          <path
+            d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+            stroke="currentColor"
+            strokeWidth="1.7"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="3"
+            stroke="currentColor"
+            strokeWidth="1.7"
+          />
         </>
       ) : (
         <>
-          <path d="M3 3 21 21M10.6 5.2A10.7 10.7 0 0 1 12 5c6.5 0 10 7 10 7a15 15 0 0 1-3.1 3.8M6.2 6.2C3.4 8.1 2 12 2 12s3.5 7 10 7c1.3 0 2.5-.3 3.5-.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+          <path
+            d="M3 3 21 21M10.6 5.2A10.7 10.7 0 0 1 12 5c6.5 0 10 7 10 7a15 15 0 0 1-3.1 3.8M6.2 6.2C3.4 8.1 2 12 2 12s3.5 7 10 7c1.3 0 2.5-.3 3.5-.8"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+          />
         </>
       )}
     </svg>
@@ -91,7 +130,13 @@ function EyeIcon({ visible }: { visible: boolean }) {
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M4 12h15m-6-6 6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -99,8 +144,19 @@ function ArrowIcon() {
 function ShieldIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 2 20 5v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-      <path d="m8.5 12 2.3 2.3 4.7-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M12 2 20 5v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m8.5 12 2.3 2.3 4.7-5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -108,7 +164,13 @@ function ShieldIcon() {
 function Login() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [showPassword, setShowPassword] = useState(false);
+  // const [statusMessage, setStatusMessage] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState<"success" | "error" | "">("");
+
+  const navigate = useNavigate();
+
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   const {
     register,
@@ -122,17 +184,80 @@ function Login() {
     },
   });
 
+  // const onSubmit = async (data: LoginValues) => {
+  //   setStatusMessage("");
+
+  //   try {
+  //     const response = await authService.login({
+  //       email: data.email.trim(),
+  //       password: data.password,
+  //       rememberMe: data.rememberMe,
+  //     });
+
+  //     setStatusMessage(
+  //       `Welcome back, ${response.data.user.firstName}. Login successful.`,
+  //     );
+  //   } catch (error: unknown) {
+  //     setStatusMessage(getLoginErrorMessage(error));
+  //   }
+  // };
+
+  // const onSubmit = async (data: LoginValues) => {
+  //   setStatusMessage("");
+  //   setStatusType("");
+
+  //   try {
+  //     const response = await authService.login({
+  //       email: data.email.trim(),
+  //       password: data.password,
+  //       rememberMe: data.rememberMe,
+  //     });
+
+  //     setStatusType("success");
+  //     setStatusMessage(
+  //       `Welcome back, ${response.data.user.firstName}. Login successful.`,
+  //     );
+  //   } catch (error: unknown) {
+  //     setStatusType("error");
+  //     setStatusMessage(getLoginErrorMessage(error));
+  //   }
+  // };
+
   const onSubmit = async (data: LoginValues) => {
-    setStatusMessage(
-      "Login API integration is pending. Your form is ready for backend connection."
-    );
+    if (loginSuccess) return;
 
-    console.log("Login form submitted:", {
-      email: data.email,
-      rememberMe: data.rememberMe,
-    });
+    setStatusMessage("");
+    setStatusType("");
+
+    try {
+      const response = await authService.login({
+        email: data.email.trim(),
+        password: data.password,
+        rememberMe: data.rememberMe,
+      });
+
+      setStatusType("success");
+      setStatusMessage(
+        `Welcome back, ${response.data.user.firstName}. Login successful.`,
+      );
+
+      setLoginSuccess(true);
+
+      // Allow the success animation to finish before redirecting.
+      window.setTimeout(() => {
+        navigate("/dashboard", {
+          replace: true,
+          state: {
+            loginSuccess: true,
+            user: response.data.user,
+          },
+        });
+      }, 1600);
+    } catch (error: unknown) {
+      setStatusType("error");
+      setStatusMessage(getLoginErrorMessage(error));
+    }
   };
-
   return (
     <main className={styles.loginPage} data-theme={theme}>
       <div className={styles.mainContent}>
@@ -165,19 +290,31 @@ function Login() {
             <div className={styles.features}>
               <div className={styles.feature}>
                 <div className={styles.featureIcon}>ϟ</div>
-                <span>Real-Time<br />Insights</span>
+                <span>
+                  Real-Time
+                  <br />
+                  Insights
+                </span>
               </div>
 
               <div className={styles.feature}>
                 <div className={styles.featureIcon}>▥</div>
-                <span>Operational<br />Efficiency</span>
+                <span>
+                  Operational
+                  <br />
+                  Efficiency
+                </span>
               </div>
 
               <div className={styles.feature}>
                 <div className={styles.featureIcon}>
                   <ShieldIcon />
                 </div>
-                <span>Enterprise-Grade<br />Security</span>
+                <span>
+                  Enterprise-Grade
+                  <br />
+                  Security
+                </span>
               </div>
             </div>
           </div>
@@ -280,7 +417,9 @@ function Login() {
                     type="button"
                     className={styles.passwordToggle}
                     onClick={() => setShowPassword((previous) => !previous)}
-                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    aria-label={
+                      showPassword ? "Hide password" : "Show password"
+                    }
                   >
                     <EyeIcon visible={showPassword} />
                   </button>
@@ -308,16 +447,34 @@ function Login() {
               <button
                 type="submit"
                 className={styles.submitButton}
-                disabled={isSubmitting}
+                disabled={isSubmitting || loginSuccess}
               >
-                <span>{isSubmitting ? "Signing in..." : "Sign in"}</span>
+                <span>
+                  {isSubmitting
+                    ? "Signing in..."
+                    : loginSuccess
+                      ? "Authenticated"
+                      : "Sign in"}
+                </span>
                 <ArrowIcon />
               </button>
 
               {statusMessage && (
-                <p className={styles.statusMessage} role="status">
-                  {statusMessage}
-                </p>
+                <div
+                  className={`${styles.statusMessage} ${
+                    statusType === "error"
+                      ? styles.statusError
+                      : styles.statusSuccess
+                  }`}
+                  role={statusType === "error" ? "alert" : "status"}
+                  aria-live="polite"
+                >
+                  <span className={styles.statusIcon}>
+                    {statusType === "error" ? "!" : "✓"}
+                  </span>
+
+                  <span>{statusMessage}</span>
+                </div>
               )}
             </form>
 
@@ -332,6 +489,48 @@ function Login() {
           </div>
         </section>
       </div>
+
+      {/*  */}
+
+      {loginSuccess && (
+        <div className={styles.loginSuccessOverlay}>
+          <div className={styles.successContent}>
+            <div className={styles.successIcon}>
+              <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle
+                  cx="32"
+                  cy="32"
+                  r="27"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className={styles.successCircle}
+                />
+                <path
+                  d="m19 32 9 9 18-19"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.successCheck}
+                />
+              </svg>
+            </div>
+
+            <span className={styles.successEyebrow}>
+              AUTHENTICATION VERIFIED
+            </span>
+
+            <h2>Welcome back.</h2>
+
+            <p>{statusMessage}</p>
+
+            <div className={styles.redirectIndicator}>
+              <span />
+              Preparing your workspace
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* FOOTER */}
       <footer className={styles.footer}>

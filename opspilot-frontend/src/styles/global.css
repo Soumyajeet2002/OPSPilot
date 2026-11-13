@@ -1,0 +1,174 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Michroma&display=swap');
+
+/* =========================================
+   OpsPilot — Global Design Foundation
+   ========================================= */
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  /* Brand */
+  --color-primary: #0164ff;
+  --color-primary-hover: #0054d9;
+  --color-primary-soft: rgba(1, 100, 255, 0.12);
+
+  /* Dark theme — default */
+  --color-bg: #080808;
+  --color-surface: #101010;
+  --color-surface-secondary: #171717;
+  --color-surface-elevated: #202020;
+
+  --color-text: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-hover: #202020;
+
+  /* Semantic colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #0164ff;
+
+  /* Typography */
+  --font-primary: 'Manrope', sans-serif;
+  --font-display: 'Michroma', sans-serif;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-elevated: 0 12px 36px rgba(0, 0, 0, 0.24);
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  color-scheme: dark;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Explicit dark theme */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* Light theme */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f0f1f4;
+  --color-surface-elevated: #ffffff;
+
+  --color-text: #111318;
+  --color-text-secondary: #555b66;
+  --color-text-muted: #858b96;
+
+  --color-border: rgba(17, 19, 24, 0.1);
+  --color-border-strong: rgba(17, 19, 24, 0.18);
+  --color-hover: #e8eaf0;
+
+  --shadow-card: 0 4px 24px rgba(17, 19, 24, 0.06);
+  --shadow-elevated: 0 12px 36px rgba(17, 19, 24, 0.12);
+}
+
+/* CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+img,
+video {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

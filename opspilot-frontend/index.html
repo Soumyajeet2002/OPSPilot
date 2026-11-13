@@ -2,9 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Apply the saved theme before the page paints or React renders.
+      (() => {
+        let theme = "dark";
+
+        try {
+          const savedTheme = localStorage.getItem("opspilot-theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            theme = savedTheme;
+          }
+        } catch {
+          // Keep the dark default when browser storage is unavailable.
+        }
+
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>opspilot-frontend</title>
+    <meta
+      name="description"
+      content="OpsPilot — Enterprise Operations & Intelligence Platform"
+    />
+    <meta name="theme-color" content="#0164FF" />
+    <title>OpsPilot — Operations & Intelligence</title>
   </head>
   <body>
     <div id="root"></div>

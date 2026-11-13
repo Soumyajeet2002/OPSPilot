@@ -1,0 +1,235 @@
+.page {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.identity {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 50px 9%;
+  background: #03070e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 760px;
+}
+.identity::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 45% 50%, #01214c60, transparent 65%);
+}
+.pitch {
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+.pitch h1 {
+  font-size: clamp(36px, 3.8vw, 62px);
+  line-height: 1.2;
+  letter-spacing: -2.5px;
+  margin: 24px 0;
+  font-weight: 800;
+}
+.pitch h1 span {
+  color: #3486ff;
+}
+.pitch p {
+  color: #a5b4ca;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.features {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid #253247;
+  max-width: 440px;
+}
+.features span {
+  font-size: 11px;
+  color: #bdc9db;
+  line-height: 1.6;
+}
+.features svg {
+  display: block;
+  color: #3486ff;
+  width: 20px;
+  margin-bottom: 10px;
+}
+.earth {
+  width: 120%;
+  max-width: none;
+  margin: 35px -10% -20px;
+}
+.caption {
+  color: #8496ad;
+  font-size: 11px;
+  text-align: center;
+  margin-top: auto;
+  position: relative;
+}
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 90px 12% 65px;
+  background: var(--color-bg);
+}
+.theme {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+}
+.formWrap {
+  width: 100%;
+  max-width: 410px;
+  margin: auto;
+}
+.formWrap h2 {
+  font-size: 32px;
+  letter-spacing: -1.2px;
+  margin: 16px 0 9px;
+}
+.formWrap > p {
+  line-height: 1.7;
+}
+.formWrap form {
+  margin-top: 36px;
+}
+.formWrap form > button {
+  width: 100%;
+  margin-top: 22px;
+}
+.password {
+  position: relative;
+}
+.password input {
+  padding-right: 50px;
+}
+.password button {
+  position: absolute;
+  right: 5px;
+  top: 4px;
+}
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+.remember input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+.support {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 25px 0;
+}
+.preview {
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+  font-size: 12px;
+  display: grid;
+  gap: 10px;
+}
+.preview span {
+  color: var(--color-text-secondary);
+}
+.preview a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-info);
+}
+.sessionNote {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 23px;
+}
+.sessionNote svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.footer {
+  position: absolute;
+  bottom: 24px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--color-text-secondary);
+  font-size: 9px;
+}
+@media (min-width: 1600px) {
+  .identity {
+    padding-top: 70px;
+  }
+  .pitch {
+    margin-top: 140px;
+  }
+}
+@media (max-width: 950px) {
+  .identity {
+    padding: 40px 8%;
+  }
+  .pitch h1 {
+    font-size: 40px;
+  }
+  .features {
+    gap: 18px;
+  }
+  .panel {
+    padding-inline: 9%;
+  }
+}
+@media (max-width: 700px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+  .identity {
+    min-height: auto;
+    padding: 28px 26px;
+  }
+  .pitch {
+    margin-top: 35px;
+  }
+  .pitch h1 {
+    font-size: 36px;
+    margin: 14px 0;
+  }
+  .pitch p,
+  .features,
+  .earth,
+  .caption {
+    display: none;
+  }
+  .identity .eyebrow {
+    font-size: 8px;
+  }
+  .panel {
+    padding: 75px 26px 80px;
+    min-height: 650px;
+  }
+  .theme {
+    top: 18px;
+    right: 20px;
+  }
+  .footer {
+    font-size: 8px;
+    left: 26px;
+    right: 26px;
+  }
+}

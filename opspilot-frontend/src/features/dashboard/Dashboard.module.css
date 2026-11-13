@@ -1,0 +1,482 @@
+.date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+.overviewLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 10px;
+  margin: 28px 0 15px;
+}
+.overviewLabel > span:last-child {
+  margin-left: auto;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.metric {
+  position: relative;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.metricTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-secondary);
+  font-size: 10px;
+}
+.metricTop > svg {
+  margin-left: auto;
+  opacity: 0.5;
+}
+.metricIcon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: var(--color-primary-soft);
+  color: var(--color-info);
+  border-radius: 8px;
+}
+.metric > strong {
+  display: block;
+  font-size: 31px;
+  letter-spacing: -1px;
+  font-weight: 750;
+  margin: 16px 0 10px;
+}
+.metricBottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 9px;
+  color: var(--color-text-secondary);
+}
+.positive {
+  color: var(--color-success);
+}
+.sparkline {
+  position: absolute;
+  width: 65px;
+  height: 26px;
+  right: 18px;
+  top: 80px;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+.chartGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  min-width: 0;
+  padding: 20px;
+}
+.panelTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  min-height: 24px;
+}
+.panelTitle h2 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 650;
+  margin: 0;
+}
+.panelTitle h2 svg {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+.panelTitle select {
+  font-size: 9px;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  padding: 5px;
+  background: var(--color-surface-secondary);
+  color: var(--color-text-secondary);
+  max-width: 110px;
+}
+.chartSummary {
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.chartSummary > strong {
+  font-size: 27px;
+  letter-spacing: -1px;
+}
+.chartSummary > strong span {
+  font-size: 21px;
+}
+.chartSummary > span {
+  font-size: 9px;
+}
+.chartSummary small {
+  display: block;
+  margin-top: 5px;
+  color: var(--color-text-secondary);
+  font-size: 8px;
+}
+.areaChart {
+  height: 180px;
+  margin-top: 12px;
+}
+.chartLegend {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 8px;
+  color: var(--color-text-secondary);
+  padding-top: 9px;
+}
+.chartLegend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.chartLegend i {
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+.chartLegend i.previous {
+  background: var(--color-text-secondary);
+}
+.chartLegend button {
+  margin-left: auto;
+  color: var(--color-info);
+  background: transparent;
+  border: 0;
+  padding: 5px;
+  font-size: 9px;
+}
+.donut {
+  position: relative;
+  height: 175px;
+  max-width: 200px;
+  margin: 15px auto 10px;
+}
+.donutLabel {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.donutLabel strong {
+  font-size: 31px;
+  letter-spacing: -1px;
+}
+.donutLabel span {
+  font-size: 9px;
+  color: var(--color-text-secondary);
+  margin-top: 3px;
+}
+.legend {
+  display: grid;
+  gap: 10px;
+  font-size: 10px;
+}
+.legend > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+.legend i {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+}
+.legend strong {
+  margin-left: auto;
+  color: var(--color-text);
+  font-size: 10px;
+}
+.completion {
+  position: relative;
+  width: 155px;
+  height: 155px;
+  margin: 22px auto 15px;
+}
+.completion > strong {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 33px;
+}
+.completion > strong span {
+  font-size: 18px;
+  margin-top: 7px;
+}
+.taskTotal {
+  text-align: center;
+}
+.taskTotal > strong {
+  font-size: 16px;
+}
+.taskTotal strong span {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 400;
+}
+.taskTotal p {
+  color: var(--color-text-secondary);
+  font-size: 10px;
+  margin: 6px 0 12px;
+}
+.taskTotal > span {
+  font-size: 9px;
+}
+.bottomGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.barChart {
+  height: 210px;
+  margin-top: 10px;
+}
+.activityList {
+  padding-top: 12px;
+}
+.activity {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.activity:last-child {
+  border-bottom: 0;
+}
+.activityDot {
+  height: 5px;
+  width: 5px;
+  flex-shrink: 0;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+.activity strong,
+.deadline > div > strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 550;
+  line-height: 1.6;
+}
+.activity > div > span,
+.deadline > div > span {
+  display: block;
+  font-size: 8px;
+  color: var(--color-text-secondary);
+  margin-top: 5px;
+}
+.activity time {
+  font-size: 8px;
+  margin-left: auto;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+.deadlines {
+  margin-top: 8px;
+}
+.deadline {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.deadline:last-child {
+  border: 0;
+}
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-border);
+  width: 37px;
+  height: 42px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.calendar small {
+  font-size: 7px;
+  color: var(--color-text-secondary);
+}
+.calendar strong {
+  font-size: 16px;
+  margin-top: 3px;
+}
+.priority {
+  margin-left: auto;
+  padding: 4px 6px;
+  font-size: 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.high {
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 10%, transparent);
+}
+.medium {
+  color: var(--color-warning);
+  background: color-mix(in srgb, var(--color-warning) 10%, transparent);
+}
+.low {
+  color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+}
+.sampleNote {
+  font-size: 8px;
+  color: var(--color-text-secondary);
+  margin-top: 14px;
+}
+.quickActions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 25px;
+  padding: 18px 0;
+  border-top: 1px solid var(--color-border);
+}
+.quickActions > span {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--color-text-secondary);
+  margin-right: auto;
+}
+.quickActions a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  font-size: 10px;
+}
+.quickActions a:hover {
+  border-color: var(--color-primary);
+}
+.dataDetails {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+}
+.dataDetails summary {
+  cursor: pointer;
+}
+.dataDetails li {
+  margin: 8px 0;
+}
+@media (min-width: 1650px) {
+  .areaChart {
+    height: 230px;
+  }
+  .donut {
+    height: 200px;
+  }
+  .completion {
+    margin: 35px auto 30px;
+  }
+}
+@media (max-width: 1250px) {
+  .chartGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .revenue {
+    grid-column: 1 / -1;
+  }
+  .bottomGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bottomGrid > :first-child {
+    grid-column: 1 / -1;
+  }
+  .metrics {
+    gap: 10px;
+  }
+  .metric {
+    padding: 15px;
+  }
+  .metricTop {
+    gap: 6px;
+    font-size: 9px;
+  }
+  .sparkline {
+    width: 40px;
+    right: 12px;
+  }
+  .quickActions {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 600px) {
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .metric > strong {
+    font-size: 27px;
+  }
+  .metricTop > svg {
+    display: none;
+  }
+  .metricBottom {
+    font-size: 8px;
+  }
+  .chartGrid,
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+  .chartGrid > *,
+  .bottomGrid > * {
+    grid-column: auto;
+  }
+  .panel {
+    padding: 18px;
+  }
+  .quickActions > span {
+    flex-basis: 100%;
+  }
+  .quickActions a {
+    flex: 1 1 100%;
+  }
+  .overviewLabel {
+    flex-wrap: wrap;
+  }
+  .date {
+    font-size: 10px;
+  }
+}

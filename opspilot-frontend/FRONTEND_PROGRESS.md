@@ -1,5 +1,15 @@
 # OpsPilot frontend progress
 
+## Login reference refinement — 16 November 2026
+
+- User supplied the approved 1672 × 941 login reference. Copied unchanged to `src/assets/opspilot-login-reference.png`.
+- Login uses the supplied branding panel directly, retaining its exact logo, display text, Earth imagery, and blue geometry. Desktop dark heading uses the reference lettering as a CSS background crop; accessible heading text remains in the DOM. No image generation or official logo redraw.
+- Rebuilt live form with reference labels/placeholders, input icons, password visibility, checked remember-me default, recovery control, blue gradient submit, secure-access separator, segmented global theme selection, corner accents, and reference footer text.
+- Removed demonstration/promo content from the login composition. Authentication behavior retained. Recovery/policy/support controls open honest information dialogs rather than fabricated routes or policies.
+- Login-only viewport sizing uses `100dvh` and scoped root overflow containment. Desktop is a split layout; mobile retains the working form with compact branding.
+- Desktop screenshot inspected: complete composition and footer visible without page scrollbars. Mobile styling implemented but not device-verified. Build/lint and 24 existing automated tests pass; no new authentication success claimed.
+- Original screenshot typography is raster artwork; editable form text uses existing Manrope/Michroma. Exact proportions vary with the viewport aspect ratio.
+
 Updated: 13 November 2026. Canonical location: `D:\GITHUB\OPS-Pilot\main\opspilot-frontend`.
 The obsolete `dev\opspilot-frontend` path does not exist. The old `dev\front-end` and backend were inspected only and remain unchanged.
 
